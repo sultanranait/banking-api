@@ -1,63 +1,32 @@
-### Objective
 
-Your assignment is to build an internal API for a fake financial institution using PHP and Laravel.
 
-### Brief
+Perform below steps for project setup:
 
-While modern banks have evolved to serve a plethora of functions, at their core, banks must provide certain basic features. Today, your task is to build the basic HTTP API for one of those banks! Imagine you are designing a backend API for bank employees. It could ultimately be consumed by multiple frontends (web, iOS, Android etc).
+1- clone project from repo
+2- open laravel/ directory in terminal
+3- run following command to install all vendors and packages
+  
+  composer install
 
-### Tasks
+  => When above gets completed
+4- update .env file with DB credentials and other needed env variables
+5- Run following commands to set/save .env updates and seeder classes safely in project scope:
 
-- Implement assignment using:
-  - Language: **PHP**
-  - Framework: **Laravel**
-- There should be API routes that allow them to:
-  - Create a new bank account for a customer, with an initial deposit amount. A
-    single customer may have multiple bank accounts.
-  - Transfer amounts between any two accounts, including those owned by
-    different customers.
-  - Retrieve balances for a given account.
-  - Retrieve transfer history for a given account.
-- Write tests for your business logic
+  php artisan key:generate
+  php artisan config:cache
+  composer dump-autoload
 
-Feel free to pre-populate your customers with the following:
+6- Run following commands to migrate DB tables and seeding data for tables
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Arisha Barron"
-  },
-  {
-    "id": 2,
-    "name": "Branden Gibson"
-  },
-  {
-    "id": 3,
-    "name": "Rhonda Church"
-  },
-  {
-    "id": 4,
-    "name": "Georgina Hazel"
-  }
-]
-```
+  php artisan migrate
+  php artisan db:seed
 
-You are expected to design any other required models and routes for your API.
+7- Run following command to run unit tests of business logics and helper methods of AccountServices and TransferServices API
 
-### Evaluation Criteria
+  php artisan test
 
-- **PHP** best practices
-- Completeness: did you complete the features?
-- Correctness: does the functionality act in sensible, thought-out ways?
-- Maintainability: is it written in a clean, maintainable way?
-- Testing: is the system adequately tested?
-- Documentation: is the API well-documented?
-
-### CodeSubmit
-
-Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
-
-All the best and happy coding,
-
-The Fahrenheit Marketing Team
+8- Find 'Bank API.postman_collection.json' file in root directory (same location where setup_readme.txt resides)
+  
+  Import 'Bank API.postman_collection.json' in Postman to test and work with API endpoints
+  API documentation is published, Go to the following url to get complete API doc
+    https://documenter.getpostman.com/view/8523464/2s93JnTRSj
